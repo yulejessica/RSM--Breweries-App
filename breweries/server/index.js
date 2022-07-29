@@ -25,22 +25,20 @@ let options = {
     'User-Agent': 'request',
   }
 };
-
+//get all data
 app.get('/', (req, res) => {
   axios.get(`${options.url}/`, {headers: options.headers})
   .then(list => res.status(200).send(list.data))
   .catch(err => res.status(500).send(err));
 });
-
-app.get('/?by_city=', (req, res) => {
-  console.log('hit city!!')
+//get data by city
+app.get('/city', (req, res) => {
   let city = req.query.by_city;
-  console.log('city', city)
   axios.get(`${options.url}/?by_city=${city}`, {headers: options.headers})
   .then(list => res.status(200).send(list.data))
   .catch(err => res.status(500).send(err));
 })
-
+//get data by id
 app.get('/detail/:id', (req, res) => {
   console.log('hit id!')
   let id = req.params.id;

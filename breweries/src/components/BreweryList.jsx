@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const Breweries = () => {
+const BreweriesList = () => {
   // const defaultProps = {
   //   center: {
   //     lat: 10.99835602,
@@ -27,4 +27,4 @@ const Breweries = () => {
   )
 }
 
-export default Breweries;
+export default BreweriesList;
