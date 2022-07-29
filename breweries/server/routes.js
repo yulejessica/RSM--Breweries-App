@@ -3,10 +3,6 @@ const breweries = require("./controllers/breweries.js");
 
 const router = express.Router();
 
-router.get("/topics", breweries.getAll);
-router.post("/create", breweries.createOne);
-router.put("/update", breweries.update);
-router.delete("/delete", breweries.delete);
-
+// router.get("/", breweries.getAll);
 
 module.exports = router;

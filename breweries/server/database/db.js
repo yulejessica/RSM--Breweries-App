@@ -19,24 +19,53 @@ mongoose
 const BrewerySchema = new mongoose.Schema({
   name: {
     type: String,
+    required: true,
+    unique: true,
+    trim: true
   },
-  type: {
+  breweryID: {
+    type: Number,
+    required: true,
+    unique: true
+  },
+  breweryType: {
     type: String,
+    required: true
   },
   street: {
     type: String,
+    trim: true,
+    default: ""
+  },
+  address2: {
+    type: String,
+    default: ""
   },
   city: {
     type: String,
+    required: true,
+    trim: true
   },
   state: {
     type: String,
+    required: true,
+    trim: true
   },
   zipcode: {
-    type: Number,
-  },
-  website: {
     type: String,
+    default: ""
+  },
+  longtitue: {
+    type: String,
+    default: ""
+  },
+  latitude: {
+    type: String,
+    default: ""
+  },
+  websiteUrl: {
+    type: String,
+    default: ""
   }
 })
 const Brewery = mongoose.model("breweries", BrewerySchema);
