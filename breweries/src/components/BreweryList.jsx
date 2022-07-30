@@ -1,27 +1,27 @@
 import React from 'react';
-import GoogleMapReact from 'google-map-react';
+import BreweryCard from './BreweryCard.jsx';
 
-const BreweriesList = () => {
-  // const defaultProps = {
-  //   center: {
-  //     lat: 10.99835602,
-  //     lng: 77.01502627
-  //   },
-  //   zoom: 11
-  // };
+
+const BreweriesList = ({breweriesData}) => {
 
   return (
     <div>
       <div className="breweriesList">
+        <div>
+        {breweriesData.map((brewery, index) => (
+          <BreweryCard
+            key={index}
+            name={brewery.name}
+            type={brewery.brewery_type}
+            address={`${brewery.street} ${brewery.city}, ${brewery.state} ${brewery.postal_code}`}
+            website={brewery.website_url}
+            longitude={brewery.longitude}
+            latitude={brewery.latitude}
+          />
+        ))}
+        </div>
       </div>
-      <div className="googleMap" style={{ height: '100vh', width: '100%' }}>
-      {/* <GoogleMapReact
-        bootstrapURLKeys={{ key: "" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      >
-      </GoogleMapReact> */}
-    </div>
+
 
     </div>
   )
