@@ -9,18 +9,19 @@ import BreweryListContainer from './components/BreweryListContainer.jsx';
 
 export const PropIdContext = createContext();
 function App() {
-  const [city, setCity] = useState('new_york');
+  const [state, setState] = useState('California');
   return (
     <>
-    <PropIdContext.Provider value={{city}} >
-      <BrowserRouter>
+    <PropIdContext.Provider value={{state, setState}} >
+      {/* <BrowserRouter>
       <Routes>
         <Route exact path="/" component={BrewerySearch} />
         <Route path="/results" component={BreweryListContainer} />
       </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <BreweryListContainer />
       </PropIdContext.Provider>
-    {/* <Footer /> */}
+
   </>
   );
 }
