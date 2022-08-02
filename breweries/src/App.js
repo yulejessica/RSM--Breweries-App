@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
 import { useState, createContext} from "react";
-import {Routes, Route, BrowserRouter } from 'react-router-dom';
-import BreweryListContainer from './components/BreweryListContainer.jsx';
+import Header from './components/header/Header.jsx';
+import BreweryListContainer from './components/brewery/BreweryListContainer.jsx';
 
 
 export const PropIdContext = createContext();
@@ -14,13 +14,11 @@ function App() {
   return (
     <>
     <PropIdContext.Provider value={{state, setState, city, setCity}} >
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/breweries" component={BreweryListContainer} />
-        </Routes>
-      </BrowserRouter> */}
-      <BreweryListContainer />
-      </PropIdContext.Provider>
+      <Header />
+
+        <BreweryListContainer />
+
+    </PropIdContext.Provider>
 
   </>
   );

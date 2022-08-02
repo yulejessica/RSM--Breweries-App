@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-import { PropIdContext } from '../App.js';
+import { PropIdContext } from '../../App.js';
 import BreweriesList from './BreweryList.jsx';
 
 const BreweriesListContainer = () => {
