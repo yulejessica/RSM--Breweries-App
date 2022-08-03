@@ -1,16 +1,18 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import GoogleMapReact from 'google-map-react';
-import { Map, GoogleApiWrapper, Marker } from "google-map-react";
 import { HiLocationMarker } from 'react-icons/hi';
-
+import Geocode from "react-geocode";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-const BreweryCard = ({name, type, address, website, longitude, latitude}) => {
+const BreweryCard = ({key, name, type, address, website, longitude, latitude}) => {
+
+
   const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_TOKEN;
 
   const [loadingMap, setLoadingMap] = useState(true);
+
 
   const defaultProps = {
     center: {
@@ -19,6 +21,7 @@ const BreweryCard = ({name, type, address, website, longitude, latitude}) => {
     },
     zoom:14
   }
+
 
   return (
     <div>
@@ -49,13 +52,16 @@ const BreweryCard = ({name, type, address, website, longitude, latitude}) => {
                     bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
                     defaultCenter={defaultProps.center}
                     defaultZoom={defaultProps.zoom}
+                    margin={[50, 50, 50, 50]}
+                    options={''}
+
                 >
                   <AnyReactComponent
                     lat={latitude}
                     lng={longitude}
-                    text="My Marker"
+                    text="Marker"
                   />
-                  <HiLocationMarker style={{ color: '#DA2C38'}} fontSize="large" />
+                  <HiLocationMarker  style={{ color: '#DA2C38'}} fontSize="large" />
                 </GoogleMapReact>
                   )
               }
@@ -66,5 +72,9 @@ const BreweryCard = ({name, type, address, website, longitude, latitude}) => {
     </div>
   )
 }
+
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_TOKEN);
+Geocode.setLanguage("en");
+Geocode.setRegion("us");
 
 export default BreweryCard;

@@ -72,3 +72,12 @@ app.get('/detail/:id', (req, res) => {
   .catch(err => res.status(500).send(err));
 })
 
+//get nearest breweries
+app.get('/dist', (req, res) => {
+  let dist = req.query.by_dist;
+  // console.log('dist', dist)
+  console.log('hit dist')
+  axios.get(`${options.url}?by_dist=${dist}`,{headers: options.headers})
+  .then(list => res.status(200).send(list.data))
+  .catch(err => res.status(500).send(err));
+});
