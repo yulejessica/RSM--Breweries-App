@@ -9,8 +9,10 @@ Make sure to cd into breweries folder
    > `npm install`
 3. Run with:
 
-   > `npm run start`
    > `npm run start-server`
+   > `npm run start`
+   
+4. http://localhost:3000/ should automatically open 
 The .env file includes a variable REACT_APP_GOOGLE_TOKEN holding the google map API key 
 
 ##Components
