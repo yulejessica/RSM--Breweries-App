@@ -1,7 +1,5 @@
 # RSM--Breweries-App
 
-# Getting Started with Create React App
-# Breweries App
 ### **Creater: Jessica Yu**
 
 ## Getting Started
