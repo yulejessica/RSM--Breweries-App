@@ -1,17 +1,22 @@
-const {Brewery} = require("../database/db.js");
+require("dotenv").config();
+const axios = require('axios');
+const path = require("path");
 
-exports.findAll = () => {
-  return Brewery.find({});
+const { Brewery } = require("../database/db.js");
+
+let options = {
+  url: 'https://api.openbrewerydb.org/breweries',
+  headers: {
+    'User-Agent': 'request',
+  }
 };
 
-exports.createOne = () => {
-  return Brewery.create();
-};
-
-exports.update = () => {
-  return Brewery.findOneAndUpdate()
+module.exports = {
+  findAll : () => {
+    console.log('test1');
+    // axios.get(`${options.url}/`, {headers: options.headers})
+    // .then(res => res.status(200).send(res.data))
+    // .catch(err => res.status(500).send(err));
+    // return Brewery.find({});
+  },
 }
-
-exports.delete = (id) => {
-  return Brewery.deleteOne();
-};
