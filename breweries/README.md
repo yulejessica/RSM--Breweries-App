@@ -18,6 +18,7 @@ The .env file includes a variable REACT_APP_GOOGLE_TOKEN holding the google map 
 **Main Page**
 
 Default city: Los Angeles; Default State: CA; 
+
 each brewery displayed detailed information such as name, type, address and google map of the location. 
 
 Search bar to search specific city brewery. 
